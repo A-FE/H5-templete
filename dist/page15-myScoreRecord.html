@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        .weui_cells{margin: 0;font-size: 16px;}
+        .weui_cells:before{display: none;}
+        .weui_cell:before{border-top: dashed 1px #999;}
+        .weui_media_title{color: #333;}
+        .weui_media_desc{font-size: 12px;color: #999;}
+        .weui_cell_ft{color: #bb000e;}
+        .weui_cell_ft.reduce{color: #333;}
+    </style>
+</head>
+<body>
+<header class="header">
+    <span class="back"></span>
+    <p class="title">我的积分记录</p>
+</header>
+<div style="height: 40px;"></div>
+
+<div class="weui_cells">
+    <!-- 积分减少，使用过的 -->
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <h4 class="weui_media_title">参与活动使用</h4>
+            <p class="weui_media_desc">2016-08-04</p>
+        </div>
+        <div class="weui_cell_ft reduce">-200</div>
+    </div>
+    <!-- 积分增加 -->
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <h4 class="weui_media_title">完善会员信息</h4>
+            <p class="weui_media_desc">2016-08-04</p>
+        </div>
+        <div class="weui_cell_ft">+200</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <h4 class="weui_media_title">首次关注公众号</h4>
+            <p class="weui_media_desc">2016-08-04</p>
+        </div>
+        <div class="weui_cell_ft">+200</div>
+    </div>
+</div>
+</body>
+</html>

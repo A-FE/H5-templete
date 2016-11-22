@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/libs/swiper.min.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        body{padding-bottom: 70px;}
+        .icon{display: inline-block;width: 44px;height: 44px;background: url("images/page4/icons3.png")no-repeat;background-size: 180px 90px;}
+        .icon1{background-position: 0 -45px;}
+        .icon2{background-position: -45px -45px;}
+        .icon3{background-position: -90px -45px;}
+        .icon4{background-position: -135px -45px;}
+        .icon1.active{background-position: 0 0;}
+        .icon2.active{background-position: -45px 0;}
+        .icon3.active{background-position: -90px 0;}
+        .icon4.active{background-position: -135px 0;}
+
+        .steps{text-align: center;margin-bottom: 30px;}
+        .step{text-align: center;display: inline-block;vertical-align: middle;height: 50px;}
+        .step p{line-height: 1.2em;margin-top: -4px;}
+        .line{display: inline-block;width: 28px;height: 1px;background: #ccc;margin: 0 1px;margin-top: -10px;}
+
+        .footer{position: fixed;z-index: 10;left: 0;right:0;bottom: 0;height:50px;background: #f2f2f2;border-top:solid 1px rgba(153, 160, 118, 0.83); padding: 8px;}
+        .footer_hd{font-size: 15px;}
+        .shopping-cart{display: inline-block;position: relative;width:40px;height: 40px;background: url("images/page4/icons.png") no-repeat;background-size: 120px 40px; background-position: -80px 0;vertical-align: middle; }
+        .shopping-cart span{position: absolute;right:0;top:0;width:18px;height:18px;background: #bb000e;color:#fff;line-height:18px;border-radius: 50%;text-align: center;}
+        .footer_bd{position: absolute;right: 10px;top:8px;font-size: 14px;line-height:1.2em;color: #333;}
+        .footer_bd p:first-child{color: #bb000e; }
+
+        .weui_cells{margin: 0;font-size: 16px;}
+        .weui_cells:before{display: none;}
+        .weui_cell_ft{color: #333;}
+        .weui_cells_title{margin: 0;height: 28px;line-height: 28px;border-top: solid 1px #ccc;background: #f2f2f2;font-size: 14px;color: #999;}
+        .weui_cells_title:first-child{border-top: none;}
+    </style>
+</head>
+<body>
+<header class="header">
+    <span class="back"></span>
+    <p class="title">订单详情</p>
+</header>
+<div style="height: 40px;"></div>
+
+<div class="weui_cells">
+
+<div class="weui_cells_title">订单状态</div>
+<div class="steps">
+    <div class="step step1">
+        <div class="icon icon1 active"></div>
+        <p>下单</p>
+    </div>
+    <div class="line"></div>
+    <div class="step step2">
+        <div class="icon icon2"></div>
+        <p>烹调</p>
+    </div>
+    <div class="line"></div>
+
+    <div class="step step3">
+        <div class="icon icon3"></div>
+        <p>送出</p>
+    </div>
+    <div class="line"></div>
+
+    <div class="step step4">
+        <div class="icon icon4"></div>
+        <p>完成</p>
+    </div>
+</div>
+
+
+<div class="weui_cell">您的订单将保留到2016-08-04 09：40，超时将自动取消</div>
+
+<div class="weui_cells_title">送餐地址/送餐时间</div>
+<div class="weui_cell">广州市天河区唐东璐123号某某小区**大厦0317号</div>
+<div class="weui_cell">2016-08-14 12:30</div>
+
+<div class="weui_cells_title">送餐菜单/价格</div>
+
+<div class="weui_cell">
+    <div class="weui_cell_bd weui_cell_primary">火辣夏日二人简餐<span style="color: #bb000e;">×1</span></div>
+    <div class="weui_cell_ft">￥300</div>
+</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">火辣夏日二人简餐<span style="color: #bb000e;">×1</span></div>
+    <div class="weui_cell_ft">￥300</div>
+</div>
+
+<div class="weui_cells_title">支付信息</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">原价</div>
+    <div class="weui_cell_ft">￥396</div>
+</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">配送费</div>
+    <div class="weui_cell_ft">￥0</div>
+</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">已支付</div>
+    <div class="weui_cell_ft">￥396</div>
+</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">支付方式</div>
+    <div class="weui_cell_ft">微信支付</div>
+</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">还需支付</div>
+    <div class="weui_cell_ft">￥0</div>
+</div>
+
+<div class="weui_cell" style="font-size: 14px;color: #999;">地址超出送餐范围，需支付额外的交通费用，具体金额以特工
+    单据为准</div>
+
+<div class="weui_cells_title">订餐信息</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">用餐人数</div>
+    <div class="weui_cell_ft">3人</div>
+</div>
+<div class="weui_cell">
+    <div  class="weui_cell_bd weui_cell_primary">餐具</div>
+    <div class="weui_cell_ft">需要</div>
+</div><div class="weui_cell">
+    <div class="weui_cell_bd weui_cell_primary">辣度</div>
+    <div class="weui_cell_ft">不辣</div>
+</div>
+</div>
+
+<!-- 订单未支付，将出现以下内容 -->
+<div class="footer">
+    <div class="footer_hd">
+        <div class="shopping-cart">
+            <span>2</span>
+        </div>
+        <span style="color: #bb000e; ">合计:￥414</span>
+    </div>
+    <a href="" class="footer_bd" style="top:-16px;">
+        <img width="163" height="65" src="images/page4/pay.png">
+    </a>
+</div>
+</body>
+</html>

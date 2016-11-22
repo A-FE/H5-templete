@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/project.css">
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/libs/vue2.0.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        .noline:before{display: none;}
+        .weui_media_box:before{border-top:dashed 1px #E5E5E5;}
+
+        .weui_icon_cancel:before{color: #999;}
+        .weui_icon_success_circle:before{color: #999;font-size: 36px;}
+        .weui_icon_success_circle.checked:before{color: #bb000e;font-size: 36px;}
+
+        .weui_media_box{background-color: #fff;padding-right: 50px;}
+        .weui_media_box .weui_media_desc{font-size: 16px;color: #333;line-height: 1.6em;}
+        .weui_media_box .weui_media_title{font-size: 14px;color: #999;line-height: 2.0em;}
+        .weui_cell_ft{position: absolute;right: 10px;top:15px;}
+        .weui_btn_warn{background-color: #bb000e;}
+    </style>
+</head>
+<body>
+<div id="body">
+    <header class="header">
+        <span class="back"></span>
+        <p class="title">我的地址</p>
+    </header>
+    <div style="height: 40px;"></div>
+
+    <a v-for="address in addressList" @click.stop.prevent="setDefaultAddress(address)"
+       class="weui_media_box weui_media_appmsg noline">
+        <div class="weui_media_hd">
+            <i class="weui_icon_success_circle" :class="{'checked':address.selected}"></i>
+        </div>
+        <div class="weui_media_bd">
+            <p class="weui_media_desc">{{ address.detail }}</p>
+            <p class="weui_media_title">{{ address.city }}</p>
+        </div>
+        <div class="weui_cell_ft">
+            <i class="weui_icon_cancel" @click.stop.prevent="deleteAddress(address)"></i>
+        </div>
+    </a>
+
+
+    <div class="weui_btn_area">
+        <a href="page3-addAdddress.html" class="weui_btn weui_btn_warn">+添加新地址</a>
+    </div>
+
+</div>
+<script>
+
+    new Vue({
+        el:'#body',
+        data: function () {
+            return {
+                addressList:[]
+            }
+        },
+        watch:{
+            addressList:{
+                handler: function () {
+                    store.setItem('addressList',this.addressList);
+                },
+                deep:true
+            }
+        },
+        methods: {
+            setDefaultAddress: function (address) {
+                this.addressList.forEach(function (item) {
+                    item.selected = false;
+                });
+                address.selected = true ;
+                window.history.go(-1);
+            },
+            deleteAddress: function (address){
+                var _this = this;
+                if (address.selected) {
+                    $.alert("不能删除默认地址");
+                } else {
+                    $.confirm("您确认要删除当前地址", function() {
+                        //点击确认后的回调函数
+                        _this.addressList.splice(_this.addressList.indexOf(address), 1);
+                    });
+                }
+            }
+        },
+        created: function () {
+            this.addressList = store.getItem('addressList');
+        }
+    })
+
+</script>
+</body>
+</html>

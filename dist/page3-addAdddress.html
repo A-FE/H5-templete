@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>三更海鲜夜宵外卖</title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/libs/jquery-weui.min.js"></script>
+    <script src="js/libs/city-picker.min.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        .weui_cells{margin: 0;}
+        .weui_cells:before{display: none;}
+        .weui_cell_hd{font-size: 16px;color: #333;white-space: nowrap;}
+        .weui_cell_hd .weui_input{text-indent: 10px;}
+        .weui_btn_warn{background-color: #bb000e;}
+
+        #city-picker{width: 60%;height: 20px;line-height: 1.6em;text-align: right;}
+        .weui_input{text-align: right;}
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <span class="back"></span>
+    <p class="title">请输入新地址</p>
+</header>
+<div style="height: 40px;"></div>
+
+<div class="weui_cells weui_cells_access">
+    <div class="weui_cell">
+        <div class="weui_cell_hd weui_cell_primary">所在城市</div>
+        <div class="weui_cell_ft">
+            <input class="weui_input" type="text" id="city-picker" value="广东 广州 海珠区"/>
+        </div>
+    </div>
+    <a href="page3.1baiduMap.html" class="weui_cell">
+        <div class="weui_cell_hd weui_cell_primary">所在地址</div>
+        <div class="weui_cell_ft">点击定位</div>
+    </a>
+    <div class="weui_cell">
+        <div class="weui_cell_hd">详细地址</div>
+        <div class="weui_cell_hd weui_cell_primary">
+            <input type="text" class="weui_input" placeholder="请填写楼盘街道及门牌号"/>
+        </div>
+    </div>
+</div>
+
+<div class="weui_btn_area">
+    <a href="" class="weui_btn weui_btn_warn">保存并使用</a>
+</div>
+
+<script>
+    setTimeout(function () {
+        //选择地址
+        $('#city-picker').cityPicker({
+            title:"请选择收货地址"
+        });
+    },100);
+
+</script>
+</body>
+</html>

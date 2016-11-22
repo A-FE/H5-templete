@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/project.css">
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        .noline:before{display: none;}
+        .weui_media_box:before{border-top:dashed 1px #E5E5E5;}
+
+        .weui_icon_cancel:before{color: #999;}
+        .weui_icon_success_circle:before{color: #999;font-size: 36px;}
+        .weui_icon_success_circle.checked:before{color: #bb000e;font-size: 36px;}
+
+        .weui_media_box{background-color: #fff;padding-right: 50px;}
+        .weui_media_box .weui_media_desc{font-size: 16px;color: #333;line-height: 1.6em;}
+        .weui_media_box .weui_media_title{font-size: 14px;color: #999;line-height: 2.0em;}
+        .weui_cell_ft{position: absolute;right: 10px;top:15px;}
+        .weui_btn_warn{background-color: #bb000e;}
+    </style>
+</head>
+<body>
+<header class="header">
+    <span class="back"></span>
+    <p class="title">我的地址</p>
+</header>
+<div style="height: 40px;"></div>
+
+<a onclick="setDefaultAddress(this)" class="weui_media_box weui_media_appmsg noline">
+    <div class="weui_media_hd">
+        <i class="weui_icon_success_circle checked"></i>
+    </div>
+    <div class="weui_media_bd">
+        <p class="weui_media_desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+        <p class="weui_media_title">广州市</p>
+
+    </div>
+    <div class="weui_cell_ft" >
+        <i class="weui_icon_cancel" onclick="deleteAddress(this)"></i>
+    </div>
+</a>
+
+<a onclick="setDefaultAddress(this)" class="weui_media_box weui_media_appmsg">
+    <div class="weui_media_hd">
+        <i class="weui_icon_success_circle"></i>
+    </div>
+    <div class="weui_media_bd">
+        <p class="weui_media_desc">运行轨道。</p>
+        <p class="weui_media_title">广州市</p>
+    </div>
+    <div class="weui_cell_ft">
+        <i class="weui_icon_cancel" onclick="deleteAddress(this)"></i>
+    </div>
+</a>
+
+<div class="weui_btn_area">
+    <a href="page3-addAdddress.html" class="weui_btn weui_btn_warn">+添加新地址</a>
+</div>
+
+<script>
+    // 选择默认地址
+    function setDefaultAddress(obj){
+        $('.weui_icon_success_circle').removeClass('checked');
+        $(obj).find('.weui_icon_success_circle').addClass("checked");
+    }
+    // 删除地址
+    function deleteAddress(obj) {
+        obj.parentNode.parentNode.remove();
+    }
+</script>
+</body>
+</html>

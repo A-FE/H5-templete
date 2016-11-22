@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/libs/jquery-weui.min.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        main{text-align: center;}
+        .weui_btn{margin: 15px 10px;font-size: 18px;background: #E4E4E4;}
+        .weui_btn_warn{background: #bb000e;}
+        .weui_input{border: solid 1px #bb000e;margin: 40px 20px;font-size: 16px;height:35px;line-height: 35px;width: 80%;text-indent: 20px;letter-spacing: 5px;}
+
+    </style>
+</head>
+<body>
+<header class="header">
+    <span class="back"></span>
+    <p class="title">序列号兑换</p>
+</header>
+<div style="height: 40px;"></div>
+
+<main>
+<div style="line-height: 65px;margin:0 10px;border-bottom: dashed 1px #ddd;text-align: center;">请输入您的序列号，您将获得相应的卡券</div>
+<input type="text" id="input" class="weui_input" placeholder="请填写您的8位序列号" autocomplete="off">
+
+<a id="submit" class="weui_btn" >确定</a>
+
+    <script>
+        $(function () {
+            $('#input').on('input', function () {
+                var length = $(this).val().length;
+                if(length===8){
+                    $("#submit").addClass('weui_btn_warn');
+                }else{
+                    $("#submit").removeClass('weui_btn_warn');
+                }
+            });
+
+            $('#submit').on('click', function () {
+                $.alert({
+                    title:'恭喜您！',
+                    text:'您获得了火辣夏日二人套餐实物券',
+                    onOK: function () {
+                        // 点击确认
+                        console.log('喳喳');
+                    }
+                })
+            })
+        })
+
+    </script>
+</main>
+</body>
+</html>

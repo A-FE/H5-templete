@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/libs/swiper.min.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        body{padding-bottom: 50px;}
+
+        /* 幻灯片 */
+        .swiper-container-horizontal>.swiper-pagination {  height: 30px;  bottom: 0;  }
+        .swiper-slide{height: 100px;}
+        .swiper-slide img {  width: 100%;  height: 100px;  }
+        .swiper-container-horizontal>.swiper-pagination-bullets,.swiper-pagination-custom,.swiper-pagination-fraction {  bottom: 7px;  line-height: 30px;  }
+        .swiper-pagination-bullet {  background-color: #fff;  opacity: 1;  }
+        .swiper-pagination-bullet-active {  background-color: #bb000e;  }
+
+        /* 左侧导航 */
+        main{position:relative;display: -webkit-flex;display: -webkit-box;display:flex;background-color: #fff;padding-left: 80px;}
+        aside{position:fixed;left:0;width: 70px;margin-right: 10px;font-size: 17px;color: #000;}
+        main .content{-webkit-box-flex: 1;-webkit-flex: 1;flex: 1;font-size: 0;}
+
+        aside li{border-bottom: solid 1px #ccc;text-align: center;line-height: 40px;background-color: #f2f2f2;}
+        aside li:last-child{border-bottom: none;}
+        aside li.active{border-left:solid 7px #bb000e;background-color: #fff;}
+        aside a{color: #333;}
+
+        .content_item_bd{margin-bottom: 10px;}
+        .content .content_item_title{font-size: 12px;line-height:25px;color: #000;text-align: center;background-color: #f2f2f2;}
+        .introduce{position:relative;height: 50px;width: 100%;background-color: rgba(0,0,0,0.8);padding:5px 10px;}
+        .introduce .text{color: #ffd200;}
+        .introduce .text h4{font-size: 17px;line-height: 1.2em;}
+        .introduce .text p{font-size: 13px;}
+
+        .introduce .add{position:absolute;right:10px;top:2px;font-size: 20px;color: #fff;}
+        .introduce .add p{display: inline-block;font-size: 20px;line-height: 40px;}
+        .introduce .add i{display:inline-block;width:40px;height:40px;vertical-align: middle;background: url("images/page4/icons.png") no-repeat;background-size: 120px 40px;}
+        .introduce .add i:last-child{background-position:-40px 0; }
+
+        .introduce .price{position:absolute;right:10px;top:-35px;font-size: 24px;font-weight:bold;color: #bb000e;}
+
+        .footer{position: fixed;z-index: 10;left: 0;right:0;bottom: 0;height:50px;background: #f2f2f2;border-top:solid 1px rgba(153, 160, 118, 0.83); padding: 8px;}
+        .footer_hd{font-size: 15px;}
+        .shopping-cart{display: inline-block;position: relative;width:40px;height: 40px;background: url("images/page4/icons.png") no-repeat;background-size: 120px 40px; background-position: -80px 0;vertical-align: middle; }
+        .shopping-cart span{position: absolute;right:0;top:0;width:18px;height:18px;background: #bb000e;color:#fff;line-height:18px;border-radius: 50%;text-align: center;}
+        .footer_bd{position: absolute;right: 10px;top:8px;font-size: 14px;line-height:1.2em;color: #333;}
+        .footer_bd p:first-child{color: #bb000e; }
+    </style>
+</head>
+<body>
+<header class="header">
+    <span class="back"></span>
+    <p class="title">选择菜品</p>
+</header>
+<div style="height: 40px;"></div>
+
+<!-- 轮播图 -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/page4/slide1.png"></div>
+        <div class="swiper-slide"><img src="images/page4/slide1.png"></div>
+        <div class="swiper-slide"><img src="images/page4/slide1.png"></div>
+        <div class="swiper-slide"><img src="images/page4/slide1.png"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<!-- 主内容区 -->
+<main>
+    <!-- 左侧导航 -->
+    <aside>
+        <ul>
+            <li class="active" data-index="1">爆款</li>
+            <li  data-index="2">麻辣</li>
+            <li  data-index="3">不辣</li>
+            <li  data-index="4">鲜蔬</li>
+            <li  data-index="5">小食</li>
+            <li  data-index="6">主食</li>
+            <li  data-index="7">酒水</li>
+            <li  data-index="8">甜点</li>
+            <li  data-index="9">其他</li>
+        </ul>
+    </aside>
+    <div class="content">
+        <div class="content_item" id="menu1">
+            <div class="content_item_title" >爆款</div>
+            <div class="content_item_bd">
+                <img style="width: 100%;" height="125" src="images/page4/pic1.png">
+                <div class="introduce">
+                    <div class="text">
+                        <h4>火辣二人简餐</h4>
+                        <p>2饭2菜(已售200份)</p>
+                    </div>
+                    <div class="add">
+                        <i></i> <p>2</p> <i></i>
+                    </div>
+                    <p class="price">￥139</p>
+                </div>
+            </div>
+            <div class="content_item_bd">
+                <img style="width: 100%;" height="125" src="images/page4/pic1.png">
+                <div class="introduce">
+                    <div class="text">
+                        <h4>火辣二人简餐</h4>
+                        <p>2饭2菜(已售200份)</p>
+                    </div>
+                    <div class="add">
+                        <i></i> <p>2</p> <i></i>
+                    </div>
+                    <p class="price">￥139</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content_item" id="menu2">
+            <div class="content_item_title">麻辣</div>
+            <div class="content_item_bd">
+                <img style="width: 100%;" height="125" src="images/page4/pic1.png">
+                <div class="introduce">
+                    <div class="text">
+                        <h4>火辣二人简餐</h4>
+                        <p>2饭2菜(已售200份)</p>
+                    </div>
+                    <div class="add">
+                        <i></i> <p>2</p> <i></i>
+                    </div>
+                    <p class="price">￥139</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content_item" id="menu3">
+            <div class="content_item_title">不辣</div>
+            <div class="content_item_bd">
+                <img style="width: 100%;" height="125" src="images/page4/pic1.png">
+                <div class="introduce">
+                    <div class="text">
+                        <h4>火辣二人简餐</h4>
+                        <p>2饭2菜(已售200份)</p>
+                    </div>
+                    <div class="add">
+                        <i></i> <p>2</p> <i></i>
+                    </div>
+                    <p class="price">￥139</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content_item" id="menu4">
+            <div class="content_item_title">鲜蔬</div>
+            <div class="content_item_bd">
+                <img style="width: 100%;" height="125" src="images/page4/pic1.png">
+                <div class="introduce">
+                    <div class="text">
+                        <h4>火辣二人简餐</h4>
+                        <p>2饭2菜(已售200份)</p>
+                    </div>
+                    <div class="add">
+                        <i></i> <p>2</p> <i></i>
+                    </div>
+                    <p class="price">￥139</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- 未达到起送标准 -->
+<div class="footer">
+    <div class="footer_hd">
+        <div class="shopping-cart">
+            <span>2</span>
+        </div>
+        <span>另需配送实际车费</span>
+    </div>
+    <div class="footer_bd">
+        <p>还差￥192</p>
+        <p>起送￥330</p>
+    </div>
+</div>
+<!-- 已达到起送标准 -->
+<div class="footer">
+    <div class="footer_hd">
+        <div class="shopping-cart">
+            <span>2</span>
+        </div>
+        <span style="color: #bb000e; ">合计:￥414</span>
+    </div>
+    <a href="page5.html" class="footer_bd" style="top:-16px;">
+        <img width="163" height="65" src="images/page4/bug.png">
+    </a>
+</div>
+
+<script>
+    $(function() {
+        /* 轮播图slide */
+        $(".swiper-container").swiper({
+            loop : true,
+            autoplay : 3000,
+            pagination : '.swiper-pagination',
+            paginationClickable : true
+        });
+
+        /* 左侧导航栏 */
+        $('aside li').on('click', function (e) {
+            var index = $(this).attr('data-index');
+            $('html,body').animate({scrollTop:$("#menu"+index).offset().top-40},500);
+        })
+
+    });
+
+
+    window.onscroll = function () {
+        var max = $('div[id^="menu"]').length;
+        var scrollTop = $(this).scrollTop();
+        if (scrollTop >= 100) {
+            $("aside").css({top: "40px"})
+        } else {
+            $("aside").css({top: 140 - scrollTop + "px"})
+        }
+        for (var i = 1; i <= max; i++) {
+            var offsetTop = $('#menu' + i).offset().top;
+            var t = offsetTop - scrollTop - 40;
+
+            if (-10 < t && t < 10) {
+                $('aside li').removeClass('active');
+                $('aside li[data-index="' + i + '"]').addClass('active');
+            }
+        }
+    }
+</script>
+</body>
+</html>

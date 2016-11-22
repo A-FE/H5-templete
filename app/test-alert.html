@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/libs/jquery-weui.min.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        /* 定制微信弹框 */
+        .weui_dialog{padding: 0 10px;border-radius: 6px;}
+        .weui_dialog_hd{position: relative;padding: 0;line-height: 45px;color: #bb000e;border-bottom: solid 1px #bb000e;}
+        .weui_dialog_hd:before{content: "";display: inline-block;width: 55px;height: 65px;background: url('images/bird.png');background-size: 55px 65px;position: absolute;left: 10px;top:-58px;}
+        .weui_dialog_bd{padding: 15px 10px;font-size: 16px;color: #333;}
+        .weui_dialog_ft{margin-top: 10px;}
+        .weui_btn_dialog.primary{background: #bb000e;color: #fff;font-size: 16px;margin: 0 -10px;border-radius: 0 0 6px 6px;}
+
+    </style>
+</head>
+<body>
+<div id="alert">弹框</div>
+<script>
+    $(function () {
+        $("#alert").on('click', function () {
+            $.alert({
+                title:'温馨提示',
+                text:'请选择送餐时间',
+                onOK: function () {
+                    // 点击确认
+                    console.log('喳喳');
+                }
+            })
+        });
+        $("#alert").click();
+
+    })
+</script>
+</body>
+</html>

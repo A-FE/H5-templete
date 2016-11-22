@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        .weui_cells{margin: 0;font-size: 15px;}
+        .weui_cells:before{display: none;}
+        .icon{display: inline-block;width: 50px;height: 50px;margin-right:10px;margin-bottom:25px;background: url("images/page4/icons5.png") no-repeat;background-size: 350px 50px;vertical-align: middle;}
+        .icon2{background-position-x:-50px; }
+        .icon3{background-position-x:-100px; }
+        .address{overflow: hidden;text-overflow: ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;padding: 5px 0;}
+        .status span:first-child{color: #bb000e;}
+        .status span:nth-child(2){margin: 0 10px;}
+        .status span.failed{color: #bb000e;}
+    </style>
+</head>
+<body>
+<div id="body">
+<header class="header">
+    <span class="back"></span>
+    <p class="title">我的订单</p>
+</header>
+<div style="height: 40px;"></div>
+
+<div class="weui_cells weui_cells_access">
+    <!-- 未生效 -->
+    <a href="page8-orderDetail.html" class="weui_cell">
+        <div class="weui_cell_hd"><span class="icon icon1"></span></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p class="time">2016-08-04 12:15</p>
+            <p class="address">广州市天河区棠安路146号金豪商务大厦3033号广州市天河区棠安路146号金豪商务大厦3033号</p>
+            <div class="status">
+                <span>未生效</span><span class="failed">需付￥396</span><span>原价￥396</span>
+            </div>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+
+    <!-- 已下单 -->
+    <a  href="page8-orderDetail.html" class="weui_cell">
+        <div class="weui_cell_hd"><span class="icon icon2"></span></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p class="time">2016-08-04 12:15</p>
+            <p class="address">广州市天河区棠安路146号金豪商务大厦3033号广州市天河区棠安路146号金豪商务大厦3033号</p>
+            <div class="status">
+                <span>已下单</span><span>已付￥396</span><span>原价￥396</span>
+            </div>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+
+    <!-- 已评价 -->
+    <a href="page8-orderDetail.html" class="weui_cell">
+        <div class="weui_cell_hd"><span class="icon icon3"></span></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p class="time">2016-08-04 12:15</p>
+            <p class="address">广州市天河区棠安路146号金豪商务大厦3033号广州市天河区棠安路146号金豪商务大厦3033号</p>
+            <div class="status">
+                <span>已评价</span><span>已付￥396</span><span>原价￥396</span>
+            </div>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+</div>
+</div>
+<%-- 我的订单 --%>
+<script>
+    //获取列表
+    //${url}/takeaway/Order!queryJson.action
+    //查看详情
+    //${url}/takeaway/Order!view.action?vo.id=
+    //我要下单
+    //${url}/takeaway/Order!start.action
+
+</script>
+</body>
+</html>

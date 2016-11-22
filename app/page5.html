@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/libs/weui.css">
+    <link rel="stylesheet" href="css/libs/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/project.css">
+    <script src="js/libs/jquery-3.0.0.min.js"></script>
+    <script src="js/libs/weui.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        body{padding-bottom: 50px;}
+        main{margin: 10px;border-radius: 6px;box-shadow: 0 0 3px #ccc;background: #fff;}
+
+        .icon{display: inline-block;width: 20px;height: 20px;margin-right:10px;background: url("images/page4/icons1.png") no-repeat;background-size: 180px 20px;vertical-align: middle;}
+        .icon2{background-position-x: -20px;}
+        .icon3{background-position-x: -40px;}
+        .icon4{background-position-x: -60px;}
+        .icon5{background-position-x: -80px;}
+        .icon6{background-position-x: -100px;}
+        .icon7{background-position-x: -120px;}
+        .weui_cells{margin: 0;border-radius: 6px;}
+        .weui_cells:before,.weui_cells:after,.weui_cell.textarea:before{display: none;}
+        .weui_cell{padding: 13px;}
+        .weui_input{vertical-align: middle;display: inline-block;margin-bottom: 2px;}
+        .weui_cell_bd{margin-bottom: -5px;}
+        .weui_media_desc{line-height: 1.2em;}
+        .weui_cells_checkbox .weui_check:checked + .weui_icon_checked:before{color: #bb000e;}
+
+        .footer{position: fixed;z-index: 10;left: 0;right:0;bottom: 0;height:50px;background: #f2f2f2;border-top:solid 1px rgba(153, 160, 118, 0.83); padding: 8px;}
+        .footer_hd{font-size: 15px;}
+        .shopping-cart{display: inline-block;position: relative;width:40px;height: 40px;background: url("images/page4/icons.png") no-repeat;background-size: 120px 40px; background-position: -80px 0;vertical-align: middle; }
+        .shopping-cart span{position: absolute;right:0;top:0;width:18px;height:18px;background: #bb000e;color:#fff;line-height:18px;border-radius: 50%;text-align: center;}
+        .footer_bd{position: absolute;right: 10px;top:8px;font-size: 14px;line-height:1.2em;color: #333;}
+        .footer_bd p:first-child{color: #bb000e; }
+    </style>
+</head>
+<body>
+<header class="header">
+    <span class="back"></span>
+    <p class="title">用户信息</p>
+</header>
+<div style="height: 40px;"></div>
+
+    <main>
+        <!--<div style="text-align: center;"><img width="100" height="100" src="" alt=""></div>-->
+        <div class="weui_cells weui_cells_access weui_cells_checkbox">
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><span class="icon icon1"></span></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="text" class="weui_input" placeholder="请填写您的姓名">
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><span class="icon icon2"></span></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="tel" class="weui_input" placeholder="请填写手机号">
+                </div>
+            </div>
+            <a href="page2-myAddress.html" class="weui_cell">
+                <div class="weui_cell_hd"><span class="icon icon3"></span></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p class="weui_media_desc">广州市天河区棠安路金浩哥大厦2033号</p>
+                </div>
+                <div class="weui_cell_ft"></div>
+            </a>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><span class="icon icon4"></span></div>
+                <div class="weui_cell_bd weui_cell_primary">送餐日期</div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="date" class="weui_input">
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><span class="icon icon5"></span></div>
+                <div class="weui_cell_bd weui_cell_primary">送餐时间</div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="time" class="weui_input" placeholder="请选择">
+                </div>
+            </div>
+
+            <label class="weui_cell weui_check_label" for="x12">
+                <div class="weui_cell_hd"><span class="icon icon6"></span></div>
+                <div class="weui_cell_bd weui_cell_primary">尽快送达</div>
+                <div class="weui_cell_bd">
+                    <input type="checkbox" name="" class="weui_check" id="x12">
+                    <span class="weui_icon_checked"></span>
+                </div>
+            </label>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><span class="icon icon7"></span></div>
+                <div class="weui_cell_bd weui_cell_primary">其他要求</div>
+            </div>
+            <div class="weui_cell textarea" style="margin: 10px;border: solid 1px #ccc; border-radius: 8px;">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" rows="4" placeholder="为女神点的大餐？想对她说点啥？我们的特工人员都乐意帮您传达哟！"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 已达到起送标准 -->
+    <div class="footer">
+        <div class="footer_hd">
+            <div class="shopping-cart">
+                <span>2</span>
+            </div>
+            <span style="color: #bb000e; ">合计:￥414</span>
+        </div>
+        <a href="page6.html" class="footer_bd" style="top:-16px;">
+            <img width="163" height="65" src="images/page4/next.png">
+        </a>
+    </div>
+</body>
+</html>
