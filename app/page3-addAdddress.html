@@ -12,9 +12,10 @@
     <script src="js/libs/jquery-weui.min.js"></script>
     <script src="js/libs/city-picker.min.js"></script>
     <script src="js/project.js"></script>
+    <script src="js/libs/vue2.0.js"></script>
 
-    <script type="text/javascript" src="${oss}/styles/takeaway/js/libs/baidu/BMapLib.js?1"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3tNmobyDXvMyo8xL8GTULduAoxWeAihe&coord=bd09ll"></script>
+    <script type="text/javascript" src="js/libs/baidu/BMapLib.js?1"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=3tNmobyDXvMyo8xL8GTULduAoxWeAihe&coord=bd09ll"></script>
     <style>
         body, html {  width: 100%;  height: 100%;  }
         .weui_cells {  margin: 0;  }
@@ -40,7 +41,7 @@
                 <div class="weui_cell_hd weui_cell_primary">所在城市</div>
                 <div class="weui_cell_bd" v-text="form.city"></div>
             </div>
-            <a @click.stop.prevent="chooseStreet" class="weui_cell">
+            <a href="page3.1baiduMap.html" class="weui_cell">
                 <div class="weui_cell_hd weui_cell_primary">所在地址</div>
                 <div class="weui_cell_ft" v-text="form.street"></div>
             </a>
@@ -165,9 +166,8 @@
 
 </script>
 <script type="text/javascript"
-        src="http://api.map.baidu.com/highacciploc/v1?qterm=mb&ak=3tNmobyDXvMyo8xL8GTULduAoxWeAihe&coord=bd09ll&callback_type=jsonp&extensions=3&callback=getBaiduAddress"></script>
+        src="https://api.map.baidu.com/highacciploc/v1?qterm=mb&ak=3tNmobyDXvMyo8xL8GTULduAoxWeAihe&coord=bd09ll&callback_type=jsonp&extensions=3&callback=getBaiduAddress"></script>
 
 <!-- 这行代码必须放在后面 -->
-<script type="text/javascript" src="${oss}/styles/takeaway/js/libs/baidu/baidu.js?2"></script>
 </body>
 </html>
