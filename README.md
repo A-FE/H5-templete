@@ -20,6 +20,7 @@
     var browserSync = require('browser-sync').create();  // 静态服务器
     var reload = browserSync.reload;
     var watch = require('gulp-watch');
+    var gulpScss = require('gulp-sass');   // 编译sass文件
     var imagemin = require('gulp-imagemin');
     var $ = require('gulp-load-plugins')();
 ### 3.2 配置gulp任务
@@ -31,6 +32,7 @@
     });
 
 #### 3.2.2 css压缩,自动添加前缀
+
     gulp.task('css', function () {
        gulp.src('app/css/**/*')
            .pipe($.autoprefixer())
@@ -77,14 +79,24 @@
            .pipe($.rename({suffix:'.min'}))
            .pipe(gulp.dest('dist/'));
     });
-
+#### 3.2.8 scss编译，监控
+    // 编译scss文件
+    gulp.task('scss-compile', function () {
+        gulp.src('app/css/**/*.scss')
+            .pipe(gulpScss().on('error',gulpScss.logError))
+            .pipe(gulp.dest('app/css'));
+    });
+    // 监控scss文件变化
+    gulp.task('scss-watch', function () {
+        gulp.watch('app/**/*.scss',['scss-compile']);
+    });
 
 #### clean
     gulp.task('clean', function (cb) {
        del(['dist/**/*'],cb);
     });
 ### 4. 配置默认任务
-    gulp.task('default',['image','js','css','serve','watch']);
+    gulp.task('default',['image','js','scss-compile','css','serve','watch']);
 
 ## 如何使用？
     gulp -------------------------启动默认任务default

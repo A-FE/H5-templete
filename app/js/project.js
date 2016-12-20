@@ -24,5 +24,20 @@ var store ={
 $(function () {
     $("header .back:not(.noClick)").on("click", function () {
         history.go(-1)
-    })
+    });
+    /* 五星评价插件 */
+    var myRatings=$(".my-rating");
+    for(var i=0; i<myRatings.length; i++){
+        var initialStars=myRatings[i].getAttribute("stars");
+        var starSize=myRatings[i].getAttribute("starSize");
+        var starsColor=myRatings[i].getAttribute("starsColor")||'#fecb0e';
+        var readyOnly =myRatings[i].getAttribute("readyOnly");
+        readyOnly=(readyOnly=='false')? false : true ;
+        $(".my-rating:eq("+i+")").starRating({
+            initialRating: initialStars,
+            starSize: starSize||20,
+            readOnly: readyOnly,  // 只读状态
+            starGradient:{start: starsColor,end: starsColor}
+        });
+    }
 });

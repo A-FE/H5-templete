@@ -4,6 +4,7 @@ var browserSync = require('browser-sync').create();  // 静态服务器
 var reload = browserSync.reload;
 var watch = require('gulp-watch');
 var imagemin = require('gulp-imagemin');
+var gulpScss = require('gulp-sass');   // 编译sass文件
 var $ = require('gulp-load-plugins')();
 
 // 图片压缩
@@ -13,12 +14,23 @@ gulp.task('image', function() {
         .pipe(gulp.dest('dist/images'));
 });
 
+// 编译sass文件
+gulp.task('scss-compile', function () {
+    gulp.src('app/css/**/*.scss')
+        .pipe(gulpScss().on('error',gulpScss.logError))
+        .pipe(gulp.dest('app/css'));
+});
+
+gulp.task('scss-watch', function () {
+    gulp.watch('app/**/*.scss',['scss-compile']);
+});
+
 // css压缩，自动添加前缀
 gulp.task('css', function () {
-   gulp.src('app/css/**/*')
-       .pipe($.autoprefixer())
-       .pipe($.minifyCss())
-       .pipe(gulp.dest('dist/css'));
+    gulp.src('app/css/**/*')
+        .pipe($.autoprefixer())
+        .pipe($.minifyCss())
+        .pipe(gulp.dest('dist/css'));
 });
 
 // js压缩,检测
@@ -36,8 +48,8 @@ gulp.task('lint', function () {
 
 // 复制html
 gulp.task('html', function () {
-   gulp.src('app/**/*.html')
-       .pipe(gulp.dest('dist/'))
+    gulp.src('app/**/*.html')
+        .pipe(gulp.dest('dist/'))
 });
 
 
@@ -51,20 +63,21 @@ gulp.task('serve', function () {
 
 // watch
 gulp.task('watch', function () {
+    gulp.watch(['app/**/*.scss'],['scss-compile']);
     gulp.watch(['app/**/*'],reload);
 });
 
 // css,js重命名
 gulp.task('rename', function () {
-   gulp.src(['!dist/**/*min.js','!dist/**/*min.css','dist/**/*.css','dist/**/*.js'])
-       .pipe($.rename({suffix:'.min'}))
-       .pipe(gulp.dest('dist/'));
+    gulp.src(['!dist/**/*min.js','!dist/**/*min.css','dist/**/*.css','dist/**/*.js'])
+        .pipe($.rename({suffix:'.min'}))
+        .pipe(gulp.dest('dist/'));
 });
 
 
 // clean
 gulp.task('clean', function (cb) {
-   del(['dist/**/*'],cb);
+    del(['dist/**/*'],cb);
 });
 
-gulp.task('default',['image','js','css','serve','watch']);
+gulp.task('default',['image','js','scss-compile','css','serve','watch']);
